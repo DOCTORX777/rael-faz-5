@@ -1,0 +1,62 @@
+.admin { max-width: 1000px; padding-block: 25px 40px; }
+.admin-heading, .toolbar-actions, .reply-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 7px 12px; }
+.admin-heading { justify-content: space-between; }
+.admin h1 { font-size: clamp(1.85rem, 6vw, 3rem); line-height: 1.08; font-weight: 950; letter-spacing: -.035em; }
+.admin h2 { font-size: 1.35rem; font-weight: 950; }
+#login-form { display: grid; gap: 5px; max-width: 385px; background: var(--paper); border: 1px solid var(--line); padding: 18px; margin-top: 16px; }
+#login-form label + input { margin-top: 0; }
+#login-form label:not(:first-child), #login-form button { margin-top: 5px; }
+.totals { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; margin: 17px 0 9px; }
+.totals div { display: flex; flex-direction: column-reverse; min-width: 0; padding: 8px 10px; border: 1px solid var(--line); background: var(--paper); }
+.totals .expected { grid-column: 1 / -1; background: var(--grass); }
+.totals dt { font-weight: 850; font-size: .88rem; }
+.totals dd { margin: 0; font-size: 1.7rem; font-weight: 1000; line-height: 1.05; }
+.view-switch { display: flex; flex-wrap: wrap; gap: 6px; margin: 13px 0 0; padding: 0; border: 0; }
+.view-switch label { display: flex; align-items: center; gap: 5px; min-height: 44px; padding: 5px 8px; border: 1px solid var(--line); border-radius: 5px; cursor: pointer; }
+.view-switch label:has(:checked) { background: var(--grass); }
+.view-switch input { margin: 0; accent-color: var(--blue); }
+.toolbar { display: grid; gap: 6px; margin-block: 8px; }
+.toolbar > div { min-width: 0; }
+.toolbar-actions .button { padding-inline: 10px; font-size: .9rem; }
+#reply-list, #people-section { margin-top: 14px; }
+.reply-card { border: 1px solid var(--line); background: var(--paper); overflow-wrap: anywhere; }
+.reply-card + .reply-card { margin-top: 7px; }
+.reply-card summary { min-height: 44px; padding: 9px 10px; font-weight: 800; }
+.reply-card summary strong { margin-right: 10px; }
+.reply-status { color: #445347; font-size: .91rem; }
+.reply-gift { display: block; margin: 2px 0 0 15px; color: #445347; font-size: .85rem; }
+.reply-tag { display: inline-block; margin-inline-start: 7px; padding: 2px 6px; border: 1px solid #a08f68; background: #f2ead2; font-size: .8rem; font-weight: 900; }
+.duplicate { background: #ffe79c; }
+.reply-body { padding: 9px 12px 12px; border-top: 1px solid var(--line); }
+.reply-body p + p { margin-top: 3px; }
+.reply-body h3 { font-size: 1rem; margin-top: 7px; }
+.reply-body ul { margin: 3px 0 8px; padding-left: 21px; }
+.note { white-space: pre-wrap; }
+#gift-totals summary { min-height: 44px; padding-top: 10px; font-weight: 900; }
+#gift-totals ul { margin-block: 0 10px; }
+.dup-detail { font-weight: 900; }
+.reply-actions { margin-top: 8px; }
+.danger { border-color: #a45959; color: #842626; background: #fff6f4; }
+.danger:hover { background: #ffe5df; }
+#people-table { width: 100%; margin-top: 6px; border-collapse: collapse; table-layout: fixed; text-align: left; background: var(--paper); font-size: .88rem; }
+#people-table th, #people-table td { padding: 5px 4px; border: 1px solid var(--line); overflow-wrap: anywhere; }
+#people-table th { background: var(--grass); }
+#people-table th:nth-child(1) { width: 39%; }
+#people-table th:nth-child(2) { width: 25%; }
+#people-table th:nth-child(3) { width: 14%; }
+@media (min-width: 600px) {
+  .totals { grid-template-columns: 1.25fr repeat(4, 1fr); }
+  .totals .expected { grid-column: auto; }
+  .toolbar { grid-template-columns: minmax(0, 1fr) minmax(155px, .44fr); }
+  #people-table th, #people-table td { padding: 7px 9px; }
+}
+@media print {
+  html, body, #people-table { background: #fff; color: #000; }
+  body .top, .admin-heading, #admin-status, #admin-error, #login-form, .totals,
+  #unknown-count, .view-switch, .toolbar, .toolbar-actions, #reply-list, #empty { display: none !important; }
+  #gift-totals, #people-section.not-for-entry { display: none !important; }
+  .admin { width: auto; max-width: none; padding: 0; }
+  #people-section { margin: 0; }
+  #people-table tr { break-inside: avoid; }
+  #people-table th, #people-table td { border-color: #777; }
+}

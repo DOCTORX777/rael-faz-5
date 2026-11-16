@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#fffae9">
+  <title>Painel da Paloma | Rael faz 5!</title>
+  <link rel="icon" href="/assets/bola.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/admin/admin.css">
+  <script src="/admin/admin.js" defer></script>
+</head>
+<body>
+  <header class="top">
+    <nav class="frame top-inner" aria-label="Navegação do painel">
+      <a class="wordmark" href="/">Rael faz 5!</a>
+      <a class="text-action" href="/">Ver convite</a>
+    </nav>
+  </header>
+  <main class="frame admin">
+    <div class="admin-heading">
+      <h1>Painel da Paloma</h1>
+      <button id="logout" class="button secondary" type="button" hidden>Sair</button>
+    </div>
+    <p id="admin-status" class="feedback" role="status"></p>
+    <p id="admin-error" class="feedback error" role="alert"></p>
+    <form id="login-form" method="post" hidden>
+      <label for="username">Usuário</label>
+      <input id="username" name="username" autocomplete="username" value="Paloma" required>
+      <label for="password">Senha</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" required>
+      <button class="button primary" type="submit">Entrar</button>
+    </form>
+
+    <section id="dashboard" aria-label="Confirmações de presença" hidden>
+      <dl class="totals">
+        <div class="expected"><dt>Pessoas esperadas</dt><dd id="total-expected">0</dd></div>
+        <div><dt>Adultos</dt><dd id="total-adults">0</dd></div>
+        <div><dt>Crianças</dt><dd id="total-children">0</dd></div>
+        <div><dt>Respostas “vou”</dt><dd id="total-attending">0</dd></div>
+        <div><dt>Respostas “não vou”</dt><dd id="total-declined">0</dd></div>
+      </dl>
+      <p class="helper" id="unknown-count" hidden></p>
+      <details id="gift-totals" hidden>
+        <summary>Presentes escolhidos</summary>
+        <ul></ul>
+      </details>
+      <fieldset class="view-switch">
+        <legend class="sr-only">Visão do painel</legend>
+        <label><input type="radio" name="view" value="replies" checked> Respostas</label>
+        <label><input type="radio" name="view" value="people"> Lista de convidados</label>
+      </fieldset>
+      <div class="toolbar">
+        <div><label for="search">Buscar por nome</label><input id="search" type="search" placeholder="Responsável ou convidado"></div>
+        <div><label for="filter">Filtrar</label><select id="filter">
+          <option value="all">Todos</option>
+          <option value="yes">Vou</option>
+          <option value="no">Não vou</option>
+          <option value="children">Só crianças</option>
+        </select></div>
+      </div>
+      <div class="toolbar-actions">
+        <button id="refresh" class="button secondary" type="button">Atualizar</button>
+        <button id="export-replies" class="button secondary" type="button">CSV por resposta</button>
+        <button id="export-people" class="button secondary" type="button">CSV por pessoa</button>
+        <button id="print" class="button secondary" type="button" hidden>Imprimir lista</button>
+      </div>
+      <p id="empty" class="feedback" role="status" hidden></p>
+      <div id="reply-list"></div>
+      <section id="people-section" aria-labelledby="people-title" hidden>
+        <h2 id="people-title">Lista de convidados</h2>
+        <table id="people-table">
+          <thead><tr><th scope="col">Nome</th><th scope="col">Tipo</th><th scope="col">Idade</th><th scope="col">Resposta</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </section>
+    <noscript><p>Ative o JavaScript para entrar no painel.</p></noscript>
+  </main>
+</body>
+</html>

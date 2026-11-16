@@ -1,0 +1,13 @@
+{
+  "name": "rael-faz-5",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.13.0 <23" },
+  "scripts": {
+    "dev": "netlify dev --offline",
+    "test": "node --test"
+  },
+  "dependencies": { "@netlify/blobs": "11.1.9" },
+  "devDependencies": { "netlify-cli": "27.19.0" }
+}

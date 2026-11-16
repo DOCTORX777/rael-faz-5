@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Rael faz 5//Convite de aniversario//PT-BR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:rael-faz-5-20261213@convite
+DTSTAMP:20261116T150000Z
+DTSTART:20261213T150000Z
+SUMMARY:Rael faz 5!
+LOCATION:Chácara Sol Nascente\, Rua Lázaro Braz de Mello\, 720\,
+  Vale das Cigarras\, Santa Bárbara d’Oeste – SP
+DESCRIPTION:Vem brincar e comemorar comigo!\nVenha com a camisa do seu
+  time. Leve seu kit churrasco.
+END:VEVENT
+END:VCALENDAR

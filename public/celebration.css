@@ -1,0 +1,134 @@
+.popup .pitch {
+  width: 100%;
+  max-height: 100%;
+  aspect-ratio: 4 / 3;
+  align-self: center;
+}
+
+.pitch.illustrated { background: linear-gradient(#d8eced 0%, #f0edda 52%, #95a254 54%, #748a45 100%); }
+.pitch.illustrated :is(.terraces, .field-plane, .paper-goal) { visibility: hidden; }
+.scene-art { position: absolute; z-index: 1; inset: 0; visibility: hidden; pointer-events: none; }
+.illustrated .scene-art { visibility: visible; }
+.scene-layer { position: absolute; height: auto; max-width: none; user-select: none; }
+.layer-ceu { z-index: 1; inset: -4% -4% auto; width: 108%; height: 64%; object-fit: fill; }
+.layer-sol { z-index: 2; top: 6%; left: 11%; width: 15%; animation: sunshine 8s ease-in-out infinite; }
+.layer-nuvem1 { z-index: 2; top: 12%; left: 27%; width: 28%; animation: cloud 22s ease-in-out infinite alternate; }
+.layer-nuvem2 { z-index: 2; top: 8%; right: 2%; width: 23%; animation: cloud 31s -8s ease-in-out infinite alternate-reverse; }
+.layer-morros {
+  z-index: 3; top: 23%; left: -5%; width: 110%; height: 38%; object-fit: fill;
+  translate: var(--scene-tilt, 0px) var(--scene-scroll, 0px);
+}
+.layer-gramado { z-index: 4; left: -7%; width: 114%; bottom: -5%; height: 58%; object-fit: fill; }
+.layer-rede { z-index: 5; top: 26%; left: 32%; width: 37%; height: 28%; object-fit: fill; transform-origin: bottom center; }
+.layer-trave { z-index: 6; top: 24%; left: 29%; width: 43%; height: 33%; object-fit: fill; }
+.layer-capivara {
+  z-index: 7; bottom: 43%; left: 43%; width: 16%; height: 29%; object-fit: contain;
+  object-position: center bottom; transform-origin: center bottom; animation: breathing 3.8s ease-in-out infinite;
+}
+.layer-bandeirinhas { z-index: 8; top: 3%; left: -5%; width: 41%; transform-origin: 5% 10%; animation: flags 7s ease-in-out infinite; }
+.layer-baloes { z-index: 8; top: 15%; right: 6%; width: 13%; animation: balloons 5.4s ease-in-out infinite; }
+.layer-trofeu { z-index: 9; right: 5%; bottom: 5%; width: 15%; opacity: 0; }
+.scored .layer-rede { animation: net-impact 560ms ease-out; }
+.saving .layer-capivara { animation: keeper-save 790ms ease-out; }
+.trophy-earned .layer-trofeu { opacity: 1; animation: trophy-in 920ms cubic-bezier(.2,.75,.3,1.2) both; }
+.pitch:not(.scene-active) .scene-layer { animation-play-state: paused; }
+.pitch #ball-render { position: absolute; z-index: 4; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+#ball-shadow {
+  position: absolute; z-index: 2; top: 81%; left: 42%; width: 15%; height: 8%; pointer-events: none;
+  translate: -50% -50%; border-radius: 50%; background: #28371c; filter: blur(3px); opacity: .29;
+}
+.pitch .ball-button { top: 78%; touch-action: none; }
+.pitch[data-engine="three"] .ball { opacity: 0; }
+.pitch .confetti { z-index: 5; }
+.pitch .goal { z-index: 6; }
+.invite .confetti span {
+  width: clamp(28px, 12%, 65px); height: auto; aspect-ratio: 1;
+  background: center / contain no-repeat image-set(url('/assets/cena/confete.webp') 1x, url('/assets/cena/confete@2x.webp') 2x);
+  translate: -50% -50%;
+}
+
+@keyframes sunshine { 50% { scale: 1.07; opacity: .85; } }
+@keyframes cloud { to { translate: 28% 2%; } }
+@keyframes breathing { 50% { scale: 1.018 1.04; } }
+@keyframes flags { 50% { rotate: 2.5deg; } }
+@keyframes balloons { 50% { translate: 0 -9%; rotate: 4deg; } }
+@keyframes net-impact { 26% { transform: scale(1.12, .82) skewX(5deg); } 62% { scale: .975 1.035; } }
+@keyframes keeper-save { 38%, 53% { translate: var(--keeper-x, 14px) -32%; rotate: 9deg; } }
+@keyframes trophy-in {
+  from { opacity: 0; transform: translateY(70%) rotateY(-180deg) scale(.6); }
+  72% { filter: brightness(1.28); }
+}
+
+.directions { padding-block: clamp(25px, 5vw, 46px); border-bottom: 1px solid var(--line); }
+.directions-heading { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.directions-heading img { width: 39px; height: auto; }
+.directions-heading h2 { margin: 0; }
+.venue-map {
+  margin-bottom: 12px; overflow: hidden; border: 1px solid #a19b83; border-radius: 13px;
+  height: 300px; background: var(--paper); box-shadow: var(--control-inset);
+}
+.venue-map iframe { display: block; border: 0; width: 100%; height: 100%; }
+.venue-card {
+  border: 1px solid #c7c0ab; border-radius: 12px; background: var(--paper);
+  padding: clamp(13px, 3vw, 23px); box-shadow: var(--paper-lift);
+}
+.venue-card address { font-style: normal; }
+.venue-card address strong { display: block; font-size: 1.15rem; }
+.venue-card address span { display: block; }
+.venue-card .helper { margin-top: 6px; }
+.map-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.map-actions .button { min-height: 48px; text-align: center; }
+#address-fallback { margin-top: 8px; }
+.countdown {
+  padding-block: 14px; border-bottom: 1px solid var(--line); color: var(--olive);
+  font: 700 clamp(1.35rem, 4vw, 1.8rem)/1.1 var(--condensed);
+}
+
+.kit-illustration { position: relative; display: grid; place-items: center; flex: 0 0 82px; height: 82px; }
+.kit-illustration img { width: 100%; height: 100%; object-fit: contain; filter: none; }
+.kit-shirt { transform-origin: center top; animation: flags 6s ease-in-out infinite alternate; }
+.kit-grill::after {
+  content: ''; position: absolute; top: -3%; left: 31%; width: 42%; height: 30%;
+  background: center / contain no-repeat url('/assets/cena/nuvem2.webp');
+  pointer-events: none; animation: grill-smoke 4s ease-in-out infinite;
+}
+@keyframes grill-smoke {
+  from { opacity: 0; translate: 0 49%; scale: .55; }
+  40% { opacity: .68; }
+  to { opacity: 0; translate: 23% -42%; scale: 1.12; }
+}
+
+.gifts { padding-block: clamp(24px, 5vw, 46px); }
+.gift-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 16px; text-align: center; }
+.gift-card {
+  display: grid; justify-items: center; align-content: start; gap: 4px; padding: 10px 8px 13px;
+  color: var(--ink); background: var(--paper); border: 1px solid #c9c1ad; border-radius: 12px;
+}
+.gift-art { width: min(100%, 112px); height: auto; aspect-ratio: 1; object-fit: contain; }
+.gift-card:is(:hover, :active) .gift-art { animation: gift-hop 390ms ease-out; }
+.gift-name { font-weight: 900; line-height: 1.17; }
+.gift-price { font-size: .88rem; font-weight: 850; color: #46563b; }
+.gift-count { font-size: .77rem; line-height: 1.1; font-weight: 850; color: var(--olive); }
+#rael-sizes { margin-top: 7px; }
+.confirmation-gifts { margin: 18px 0 2px; padding-top: 16px; border-top: 1px solid var(--line); }
+.confirmation-gifts h4 { font: 700 1.45rem/1.15 var(--condensed); }
+.confirmation-gifts .gift-grid { margin-top: 10px; }
+.confirmation-gifts .gift-art { width: min(100%, 75px); }
+.confirmation-gifts .gift-name { margin: 0; font-size: .84rem; }
+.confirmation-gifts .gift-price { font-size: .79rem; }
+@keyframes gift-hop { 43% { translate: 0 -5px; } }
+
+@media (min-width: 700px) {
+  .gift-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 940px) {
+  .venue-map { height: 420px; }
+  .gifts .gift-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 420px) {
+  .map-actions .button { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scene-layer, .kit-shirt, .kit-grill::after, .gift-art, .invite .confetti span { animation: none !important; }
+  .layer-morros { translate: none; }
+}

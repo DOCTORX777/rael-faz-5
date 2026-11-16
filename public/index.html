@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Venha fazer parte do nosso time! O aniversário do Rael é domingo, 13 de dezembro de 2026, a partir do meio-dia, na Chácara Sol Nascente.">
+  <meta name="theme-color" content="#eee9de">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Aniversário do Rael · 5 anos">
+  <meta property="og:description" content="Venha fazer parte do nosso time! Domingo, 13 de dezembro de 2026, a partir do meio-dia, na Chácara Sol Nascente.">
+  <!-- URLs sociais do deploy -->
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Convite em papel creme e verde-musgo para o aniversário de 5 anos do Rael, no dia 13 de dezembro.">
+  <title>Aniversário do Rael · 5 anos</title>
+  <link rel="icon" href="/assets/bola.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/graduate.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/celebration.css">
+  <script src="/fold.js" type="module"></script>
+  <script src="/invite.js" type="module"></script>
+  <script src="/venue.js" type="module"></script>
+</head>
+<body class="invite">
+  <main id="inicio">
+    <h1 class="sr-only">Aniversário do Rael, 5 anos</h1>
+    <div class="frame opening">
+      <div class="fold" id="fold">
+        <div class="book">
+          <section class="popup" id="popup" aria-labelledby="camp-title" aria-hidden="true" inert>
+            <h2 id="camp-title" tabindex="-1">Campinho do Rael</h2>
+            <div class="pitch">
+              <div class="scene-art" aria-hidden="true"></div>
+              <div class="terraces" aria-hidden="true"></div>
+              <div class="field-plane" aria-hidden="true">
+                <span class="center-circle"></span>
+                <span class="penalty-area"></span>
+              </div>
+              <div class="paper-goal" aria-hidden="true"><span class="goal-target"></span></div>
+              <span id="ball-shadow" aria-hidden="true"></span>
+              <canvas id="ball-render" aria-hidden="true" hidden></canvas>
+              <button class="ball-button" type="button" aria-label="Chutar a bola">
+                <img class="ball" src="/assets/bola-impressa.webp" width="360" height="360" alt="" draggable="false">
+              </button>
+              <div class="confetti" aria-hidden="true" hidden>
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <p class="goal" role="status" aria-live="polite" aria-atomic="true"></p>
+            </div>
+            <div class="game-controls"><span>Toque ou arraste a bola para chutar</span><span id="goals-count" aria-hidden="true">0 gols</span></div>
+          </section>
+          <div class="paper-cover" id="paper-cover" aria-hidden="true">
+            <div class="cover-rule"></div>
+            <div class="pitch-stamp" aria-hidden="true"><span></span></div>
+            <p class="cover-topline">Aniversário do</p>
+            <div class="cover-name"><span>R</span><span>A</span><span>E</span><span>L</span></div>
+            <p class="year-ribbon"><span>★</span> 5 anos <span>★</span></p>
+            <p class="cover-hand">Venha fazer parte do</p>
+            <p class="cover-team">Nosso time!</p>
+            <div class="cover-stroke"></div>
+            <img class="cover-ball" src="/assets/bola-impressa.webp" width="360" height="360" alt="" draggable="false">
+          </div>
+        </div>
+        <div class="fold-switch">
+          <button id="fold-toggle" type="button" aria-controls="popup" aria-expanded="false" hidden>
+            <span class="fold-icon" aria-hidden="true"></span><span id="fold-label">Abrir o convite</span>
+          </button>
+        </div>
+      </div>
+
+      <section class="party" id="festa" aria-labelledby="party-title">
+        <p class="match-day"><time datetime="2026-12-13">Domingo <span aria-hidden="true">·</span> 2026</time></p>
+        <h2 id="party-title"><time datetime="2026-12-13"><span class="sr-only">13 de dezembro</span><span aria-hidden="true">13<span class="date-slash">/</span>12</span></time></h2>
+        <p class="match-time"><time datetime="2026-12-13T12:00:00-03:00">A partir do meio-dia</time><span id="end-time" data-end-time="" hidden></span></p>
+        <div class="venue-block">
+          <p class="venue" data-venue-name>Local da festa</p>
+          <address data-venue-address></address>
+        </div>
+        <a class="button primary hero-cta" href="#confirmar">Confirmar presença <span aria-hidden="true">↘</span></a>
+        <p class="cover-deadline">Até <time datetime="2026-12-08">08/12</time></p>
+        <div class="party-actions" aria-label="Ações do convite">
+          <a class="text-action" href="#como-chegar">Como chegar</a>
+          <a class="text-action" href="/rael-faz-5.ics" download>Salvar na agenda</a>
+          <button class="text-action" id="share" type="button">Compartilhar</button>
+        </div>
+        <div class="share-link" hidden>
+          <label for="share-url">Link do convite</label>
+          <input id="share-url" type="url" readonly>
+        </div>
+        <p id="share-status" class="feedback" role="status"></p>
+      </section>
+    </div>
+
+    <div class="frame invitation-body">
+      <section id="como-chegar" class="directions" aria-labelledby="directions-title">
+        <div class="directions-heading">
+          <img src="/assets/bola-impressa.webp" loading="lazy" width="42" height="42" alt="">
+          <h2 id="directions-title">Como chegar</h2>
+        </div>
+        <div id="venue-map" class="venue-map" hidden>
+          <iframe id="map-frame" title="Mapa da chácara no Google Maps" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <div class="venue-card">
+          <strong data-venue-name>Local da festa</strong>
+          <address data-venue-address></address>
+          <p id="venue-reference" hidden></p>
+          <p id="map-notice" class="helper" hidden></p>
+          <div class="map-actions">
+            <a class="button primary" id="maps-link" target="_blank" rel="noopener">Ir com Google Maps</a>
+            <a class="button secondary" id="waze-link" target="_blank" rel="noopener">Ir com Waze</a>
+            <button class="button secondary" type="button" id="copy-address">Copiar endereço</button>
+          </div>
+          <p id="address-status" class="feedback" role="status"></p>
+          <div id="address-fallback" hidden>
+            <label for="address-text">Endereço para copiar</label>
+            <input id="address-text" readonly>
+          </div>
+        </div>
+      </section>
+
+      <p class="countdown" id="countdown" aria-live="off"></p>
+
+      <div class="keepsake">
+        <figure class="sticker">
+          <img src="/assets/rael.jpg" width="600" height="620" loading="lazy" alt="Espaço reservado para a foto do Rael" data-placeholder>
+          <figcaption>Rael <span>5 anos</span></figcaption>
+        </figure>
+        <section class="kit" aria-labelledby="kit-title">
+          <h2 id="kit-title">Para levar</h2>
+          <div class="kit-entry">
+            <span class="kit-illustration kit-grill"><img src="/assets/cena/churrasqueira.webp" srcset="/assets/cena/churrasqueira@2x.webp 2x" loading="lazy" alt="" width="96" height="96"></span>
+            <div><p class="hand-note">Vai ter churrasco!</p><strong>Seu kit churrasco</strong></div>
+          </div>
+          <div class="kit-entry">
+            <span class="kit-illustration"><img class="kit-shirt" src="/assets/cena/time.webp" srcset="/assets/cena/time@2x.webp 2x" loading="lazy" alt="" width="96" height="96"></span>
+            <div><p class="hand-note">Venha com as cores do time</p><strong>A camisa do seu time</strong></div>
+          </div>
+          <div id="practical" hidden>
+            <h3>Antes de sair</h3>
+            <dl>
+              <div hidden><dt>Roupa de troca</dt><dd></dd></div>
+              <div hidden><dt>Protetor solar</dt><dd></dd></div>
+              <div hidden><dt>Estacionamento</dt><dd></dd></div>
+            </dl>
+          </div>
+        </section>
+      </div>
+
+      <section class="rsvp" id="confirmar" aria-labelledby="rsvp-title">
+        <div class="rsvp-heading">
+          <h2 id="rsvp-title" tabindex="-1">Confirme sua presença</h2>
+          <p class="deadline">Responda até <time datetime="2026-12-08">08/12</time></p>
+          <div class="device-history" id="device-history" hidden>
+            <h3>Você já confirmou</h3>
+            <ul id="history-list"></ul>
+            <p class="feedback error" id="history-error" role="alert"></p>
+          </div>
+        </div>
+
+        <div class="rsvp-sheet">
+          <form id="rsvp-form" method="post" action="/api/rsvp" novalidate>
+            <p id="edit-mode" hidden>Editando uma resposta deste aparelho.</p>
+            <label for="name">Seu nome</label>
+            <input id="name" name="name" autocomplete="name" required aria-describedby="name-error">
+            <span class="field-error" id="name-error"></span>
+            <fieldset class="response">
+              <legend>Você vem?</legend>
+              <div class="choices">
+                <label><input type="radio" name="attendance" value="yes" required aria-describedby="attendance-error"> Tô dentro!</label>
+                <label><input type="radio" name="attendance" value="no" required aria-describedby="attendance-error"> Desfalque</label>
+              </div>
+              <span class="field-error" id="attendance-error"></span>
+            </fieldset>
+
+            <fieldset class="companions" hidden disabled>
+              <legend>Quem vem com você</legend>
+              <div id="guest-list"></div>
+              <button class="button secondary" id="add-guest" type="button" aria-describedby="guest-limit guests-error">+ Adicionar convidado</button>
+              <p class="helper" id="guest-limit">Até 50 acompanhantes por envio.</p>
+              <span class="field-error" id="guests-error"></span>
+            </fieldset>
+
+            <template id="guest-template">
+              <fieldset class="guest">
+                <legend></legend>
+                <div class="guest-controls">
+                  <div class="guest-name">
+                    <label>Nome do convidado</label>
+                    <input data-field="name" required>
+                    <span class="field-error"></span>
+                  </div>
+                  <div>
+                    <label>Tipo</label>
+                    <select data-field="type"><option value="adult">Adulto</option><option value="child">Criança</option></select>
+                    <span class="field-error"></span>
+                  </div>
+                  <div class="guest-age" hidden>
+                    <label>Idade (opcional)</label>
+                    <input data-field="age" type="number" inputmode="numeric" min="0" max="17" step="1" disabled>
+                    <span class="field-error"></span>
+                  </div>
+                </div>
+                <button class="text-action remove-guest" type="button">Remover convidado</button>
+              </fieldset>
+            </template>
+
+            <div class="note-field" id="gift-field" hidden>
+              <label for="gift-choice">Vai levar alguma dessas ideias? <span class="helper">(opcional)</span></label>
+              <select id="gift-choice" name="giftId" aria-describedby="gift-error"><option value="">Ainda não decidi</option></select>
+              <span class="field-error" id="gift-error"></span>
+            </div>
+            <div class="note-field">
+              <label for="note">Recado para a Paloma <span class="helper">(opcional)</span></label>
+              <textarea id="note" name="note" rows="3" aria-describedby="note-help note-error"></textarea>
+              <p class="helper" id="note-help">Até 300 caracteres. Vale avisar sobre alergias ou se você vai chegar mais tarde.</p>
+              <span class="field-error" id="note-error"></span>
+            </div>
+            <div hidden><label for="website">Deixe este campo vazio</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+            <button class="button primary submit" type="submit">Enviar resposta</button>
+            <button class="text-action" id="cancel-edit" type="button" hidden>Cancelar edição</button>
+            <p id="rsvp-error" class="feedback error" role="alert"></p>
+            <noscript><p>Ative o JavaScript para enviar a sua resposta.</p></noscript>
+          </form>
+
+          <div class="confirmation" id="confirmation" hidden tabindex="-1" aria-labelledby="confirmation-title">
+            <h3 id="confirmation-title"></h3>
+            <p id="confirmation-detail" role="status"></p>
+            <ul id="confirmed-names"></ul>
+            <figure class="jersey" id="confirmation-jersey" hidden>
+              <div class="shirt" aria-hidden="true"><span id="jersey-name"></span><b>5</b></div>
+              <figcaption class="sr-only" id="jersey-caption"></figcaption>
+              <div class="confetti" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </figure>
+            <section id="confirmation-gifts" class="confirmation-gifts" aria-labelledby="confirmation-gifts-title" hidden>
+              <h4 id="confirmation-gifts-title">Quer uma ideia de presente?</h4>
+              <div class="gift-grid" id="mini-gifts"></div>
+              <a class="text-action" href="#presentes">Ver todas as ideias</a>
+            </section>
+            <button class="button primary" id="new-reply" type="button">Confirmar outra pessoa/família</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="gifts" id="presentes" aria-labelledby="gifts-title">
+        <h2 id="gifts-title">Ideias de presente</h2>
+        <p>Sua presença já é o melhor presente! Se quiser levar algo, o Rael vai adorar:</p>
+        <p class="helper" id="rael-sizes" hidden></p>
+        <div class="gift-grid" id="gift-grid"></div>
+        <p id="gifts-status" class="helper" role="status"></p>
+      </section>
+    </div>
+  </main>
+  <footer class="footer"><div class="frame">Rael faz 5! <time datetime="2026-12-13">13 de dezembro de 2026</time></div></footer>
+</body>
+</html>

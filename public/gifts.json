@@ -1,0 +1,14 @@
+[
+  {"id":"bola","nome":"Bola de futebol infantil nº 3","preco":"R$ 30–60","arte":"presente-bola"},
+  {"id":"luvas","nome":"Luvas de goleiro infantis","preco":"R$ 30–50","arte":"presente-luvas"},
+  {"id":"gol","nome":"Mini gol dobrável ou traves pop-up","preco":"R$ 50–90","arte":"presente-gol"},
+  {"id":"album","nome":"Álbum de figurinhas de futebol + pacotinhos","preco":"R$ 25–50","arte":"presente-album"},
+  {"id":"botao","nome":"Futebol de botão ou de dedo","preco":"R$ 30–60","arte":"presente-botao"},
+  {"id":"camisa","nome":"Camisa de time infantil","preco":"R$ 40–80","arte":"presente-camisa"},
+  {"id":"blocos","nome":"Blocos de montar","preco":"R$ 40–80","arte":"presente-blocos"},
+  {"id":"massinha","nome":"Massinha de modelar com moldes","preco":"R$ 25–50","arte":"presente-massinha"},
+  {"id":"giz","nome":"Giz de calçada gigante ou kit de pintura","preco":"R$ 20–40","arte":"presente-giz"},
+  {"id":"livro","nome":"Livro ilustrado de futebol ou de bichos","preco":"R$ 25–50","arte":"presente-livro"},
+  {"id":"bolhas","nome":"Lançador de bolhas de sabão","preco":"R$ 25–50","arte":"presente-bolhas"},
+  {"id":"carrinho","nome":"Carrinho ou caminhão de brinquedo","preco":"R$ 30–70","arte":"presente-carrinho"}
+]
